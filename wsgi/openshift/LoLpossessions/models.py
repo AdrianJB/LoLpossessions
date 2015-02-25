@@ -19,7 +19,7 @@ class PosesionCampeon(models.Model):
     Usuario = models.ForeignKey(User)
     Campeon = models.ForeignKey(Campeon)
     Posesion = models.BooleanField(default=False)
-        class Meta:
+    class Meta:
         verbose_name_plural = 'PosesionCampeon'
 
 admin.site.register(Campeon)
