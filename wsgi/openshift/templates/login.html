@@ -1,0 +1,15 @@
+<html>
+	<body>
+	{% if form.errors %}
+		<p>Sorry, that's not a valid username or password</p>
+	{% endif %}
+	<h1>LoLpossessions</h1>
+		<form action="/check/" method="post">{% csrf_token %}
+			<input type="text" name="username" value="" id="username" placeholder="Usuario">
+			<input type="password" name="password" value="" id="password" placeholder="Contraseña">
+			<input type="submit" value="Iniciar sesión"/>
+			<input type="hidden" name="next" value="{{ next|escape }}"/>
+			<a href="/registro/">Registro</a>
+		</form>
+	</body>
+</html>
