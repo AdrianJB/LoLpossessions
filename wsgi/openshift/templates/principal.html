@@ -1,16 +1,8 @@
 <html>
 	<body>
+Bienvenido Invocador<br>
 		{% for campeon in todo %}
-			<h1>{{campeon.Nombre}}</h1>
-			<h3>{{campeon.Titulo}}</h3>
-			<img src="{{campeon.Icono}}"/>
-			<br>
-			<img src="{{campeon.Splashart}}"/>
-			<br>
-			<iframe width="450" height="253" src="{{campeon.Spotlight}}" frameborder="0" allowfullscreen></iframe>
-			<br>
-			<a href="{{campeon.Habilidades}}"><h2>Habilidades</h2></a>
-			<a href="{{campeon.Historia}}"><h2>Historia</h2></a>
+			<a href="{{campeon.id}}"><img src="{{campeon.Icono}}"/></a>
 		{% endfor %}
 	</body>
 </html>

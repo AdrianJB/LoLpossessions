@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^registro/$', 'openshift.LoLpossessions.views.registro'),
     url(r'^$', 'openshift.LoLpossessions.views.login'),
 	url(r'^check/$', 'openshift.LoLpossessions.views.check'),
+	#url(r'^campeones/(?P<api>[0-9]{0,9})/campeon$', 'openshift.LoLpossessions.views.campeones'),
 )
