@@ -5,3 +5,4 @@
 *~
 .project
 .pydevproject
+wsgi/openshift/sqlite3.db
