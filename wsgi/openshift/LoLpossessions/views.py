@@ -47,9 +47,16 @@ def posesion(request,campeon_id):
 	user = request.session.get('username')
 	username = User.objects.get(username=user)
 	campeon_concreto = models.Campeon.objects.get(id=campeon_id)
-	if models.PosesionCampeon.objects.filter(Campeon=campeon_id).values('Posesion') != True:
-		insert_posesion = models.PosesionCampeon(Usuario=username,Campeon=campeon_concreto,Posesion=True)
+	if len(models.PosesionCampeon.objects.filter(Campeon=campeon_id).values('Posesion')) == 0:
+		insert_posesion = models.PosesionCampeon(Usuario=username,Campeon=campeon_concreto,Posesion=1)
 		insert_posesion.save()
 		return HttpResponse('<p>Campeon agregado a tu lista en propiedad</p>')
 	else:
 		return HttpResponse('<p>Ya posees este campeon</p>')
+
+def enpropiedad(request):
+	user = request.session.get("username")
+	username = User.objects.get(username=user)
+	posesion_campeones = models.PosesionCampeon.objects.filter(Usuario=username,Posesion=True).values('Campeon')
+	enpropiedad = models.Campeon.objects.filter(id__in=posesion_campeones)
+	return render_to_response('propiedad.html', {'enpropiedad': enpropiedad},)
