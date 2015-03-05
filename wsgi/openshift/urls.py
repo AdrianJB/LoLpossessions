@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^$', 'openshift.LoLpossessions.views.login'),
     url(r'^check/$', 'openshift.LoLpossessions.views.check'),
     url(r'^(?P<campeon_id>[0-9]{0,4})/$', 'openshift.LoLpossessions.views.campeon'),
-    #url(),ESTA MUESTRA TUS CAMPEONES EN PROPIEDAD
+    url(r'^(?P<campeon_id>[0-9]{0,4})/posesion$', 'openshift.LoLpossessions.views.posesion'),
+    url(r'^enpropiedad/$', 'openshift.LoLpossessions.views.enpropiedad'),
 )

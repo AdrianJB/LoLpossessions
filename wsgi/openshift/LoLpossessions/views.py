@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, render_to_response
 from django.contrib import auth
 from LoLpossessions import models
+from django.contrib.auth.models import User
 import requests
 
 def registro(request):
@@ -42,4 +43,13 @@ def campeon(request,campeon_id):
 	campeon_concreto = models.Campeon.objects.get(id=campeon_id)
 	return render_to_response('campeon.html', {"info_campeon":campeon_concreto},)
 
-#def enpropiedad: QUE NOS MUESTRE LOS ICONOS DE LOS CAMPEONES QUE TIENES
+def posesion(request,campeon_id):
+	user = request.session.get('username')
+	username = User.objects.get(username=user)
+	campeon_concreto = models.Campeon.objects.get(id=campeon_id)
+	if models.PosesionCampeon.objects.filter(Campeon=campeon_id).values('Posesion') != True:
+		insert_posesion = models.PosesionCampeon(Usuario=username,Campeon=campeon_concreto,Posesion=True)
+		insert_posesion.save()
+		return HttpResponse('<p>Campeon agregado a tu lista en propiedad</p>')
+	else:
+		return HttpResponse('<p>Ya posees este campeon</p>')
