@@ -37,3 +37,9 @@ def login(request):
 		return render_to_response("principal.html",{"todo":todo})
 	else:
 		return render(request, 'login.html', {})
+
+def campeon(request,campeon_id):
+	campeon_concreto = models.Campeon.objects.get(id=campeon_id)
+	return render_to_response('campeon.html', {"info_campeon":campeon_concreto},)
+
+#def enpropiedad: QUE NOS MUESTRE LOS ICONOS DE LOS CAMPEONES QUE TIENES
