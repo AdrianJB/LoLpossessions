@@ -60,3 +60,7 @@ def enpropiedad(request):
 	posesion_campeones = models.PosesionCampeon.objects.filter(Usuario=username,Posesion=True).values('Campeon')
 	enpropiedad = models.Campeon.objects.filter(id__in=posesion_campeones)
 	return render_to_response('propiedad.html', {'enpropiedad': enpropiedad},)
+
+def logout(request):
+	auth.logout(request)
+	return HttpResponseRedirect('/')
