@@ -50,7 +50,7 @@ def posesion(request,campeon_id):
 	if len(models.PosesionCampeon.objects.filter(Campeon=campeon_id).values('Posesion')) == 0:
 		insert_posesion = models.PosesionCampeon(Usuario=username,Campeon=campeon_concreto,Posesion=1)
 		insert_posesion.save()
-		return HttpResponse('<p>Campeon agregado a tu lista en propiedad</p>')
+		return HttpResponse('<p>Campeon agregado a tu lista en propiedad</p><a href="/enpropiedad"><p>Ir a tu lista de Campeones en propiedad</p></a><a href="/"><p>Volver a los Campeones</p></a>')
 	else:
 		return HttpResponse('<p>Ya posees este campeon</p>')
 
