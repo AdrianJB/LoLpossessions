@@ -52,7 +52,7 @@ def posesion(request,campeon_id):
 		insert_posesion.save()
 		return HttpResponse('<p>Campeon agregado a tu lista en propiedad</p><a href="/enpropiedad"><p>Ir a tu lista de Campeones en propiedad</p></a><a href="/"><p>Volver a los Campeones</p></a>')
 	else:
-		return HttpResponse('<p>Ya posees este campeon</p>')
+		return HttpResponse('<p>Ya posees este campeon</p><a href="/enpropiedad"><p>Ir a tu lista de Campeones en propiedad</p></a><a href="/"><p>Volver a los Campeones</p></a>')
 
 def enpropiedad(request):
 	user = request.session.get("username")
